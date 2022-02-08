@@ -1,0 +1,51 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:buttonStyle">@style/button</item>
+        <item name="android:imageButtonStyle">@style/imageButton</item>
+        <item name="android:textViewStyle">@style/normalText</item>
+
+        <item name="actionBarStyle">@style/ActionBar</item>
+    </style>
+    <!-- The settings of the new imageButton style-->
+    <style name="imageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:background">@drawable/color_change</item>
+    </style>
+
+    <!-- The settings of the new text style -->
+    <style name="textTitle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:background">@drawable/rectangle</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="normalText" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name='button' parent="@style/Widget.AppCompat.Button">
+        <item name="android:background">@drawable/color_change</item>
+        <item name="titleTextColor">@style/Text</item>
+    </style>
+
+
+
+    <style name="ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/colorPrimary </item>
+        <item name="titleTextStyle">@style/Text</item>
+    </style>
+
+    <style name="Text" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+</resources>

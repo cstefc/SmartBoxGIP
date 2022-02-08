@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".displays.TemplateSettings">
+
+    <TextView
+
+        android:id="@+id/redPreview3"
+        style="@style/normalText"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="#FF0000"
+        android:textAppearance="@style/normalText"
+        app:layout_constraintBottom_toBottomOf="@+id/rSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/rSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rSpinner" />
+
+    <Spinner
+        android:id="@+id/pinSetTemplate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/rSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/pinSetName" />
+
+    <Button
+        android:id="@+id/setTemplate"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="setColor"
+        android:text="@string/ready"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/templateSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/placeSpinner"
+        app:layout_constraintTop_toTopOf="@+id/SjabloonText" />
+
+    <TextView
+        android:id="@+id/greenPreview2"
+        android:layout_width="25dp"
+        android:layout_height="0dp"
+        android:background="@color/colorBackground"
+        android:backgroundTint="#00FF00"
+        app:layout_constraintBottom_toBottomOf="@+id/gSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/gSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gSpinner" />
+
+    <Button
+        android:id="@+id/getTemplate2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="makeNewPinSet"
+        android:text="@string/ready"
+        app:layout_constraintBottom_toTopOf="@+id/seperator2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SeekBar
+        android:id="@+id/blueSeekbar"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:max="255"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenSeekbar" />
+
+    <TextView
+        android:id="@+id/preview"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/newTemplateName"
+        app:layout_constraintEnd_toStartOf="@+id/getTemplate"
+        app:layout_constraintTop_toTopOf="@+id/newTemplateName" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@color/colorBackground"
+        android:backgroundTint="#0000FF"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/blueSeekbar"
+        app:layout_constraintEnd_toStartOf="@+id/blueSeekbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/blueSeekbar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@color/colorBackground"
+        android:backgroundTint="#0000FF"
+        app:layout_constraintBottom_toBottomOf="@+id/bSpinner"
+        app:layout_constraintEnd_toStartOf="@+id/bSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bSpinner" />
+
+    <EditText
+        android:id="@+id/newTemplateName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="@string/NameTemplate"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/preview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <TextView
+        style="@style/textTitle"
+        android:id="@+id/seperator1"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blueSeekbar" />
+
+    <TextView
+        style="@style/textTitle"
+        android:id="@+id/seperator2"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bSpinner" />
+
+    <SeekBar
+        android:id="@+id/redSeekbar"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:max="255"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/getTemplate" />
+
+    <Button
+        android:id="@+id/getTemplate"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="makeNewTemplate"
+        android:text="@string/ready"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/redPreview"
+        style="@style/normalText"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="#FF0000"
+        android:textAppearance="@style/normalText"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/redSeekbar"
+        app:layout_constraintEnd_toStartOf="@+id/redSeekbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/redSeekbar" />
+
+    <SeekBar
+        android:id="@+id/greenSeekbar"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:max="255"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redSeekbar" />
+
+    <TextView
+        android:id="@+id/greenPreview"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@color/colorBackground"
+        android:backgroundTint="#00FF00"
+        app:layout_constraintBottom_toBottomOf="@+id/greenSeekbar"
+        app:layout_constraintEnd_toStartOf="@+id/greenSeekbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/greenSeekbar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:onClick="showPreview"
+        android:text="@string/showColor"
+        app:layout_constraintEnd_toEndOf="@+id/getTemplate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/getTemplate"
+        app:layout_constraintTop_toBottomOf="@+id/getTemplate" />
+
+    <EditText
+        android:id="@+id/pinSetName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/PinSetName"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/getTemplate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seperator1"
+        android:autofillHints="" />
+
+    <Spinner
+        android:id="@+id/rSpinner"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pinSetName" />
+
+    <Spinner
+        android:id="@+id/gSpinner"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rSpinner" />
+
+    <Spinner
+        android:id="@+id/bSpinner"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gSpinner" />
+
+    <Spinner
+        android:id="@+id/placeSpinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toEndOf="@+id/PlaatsText"
+        app:layout_constraintTop_toTopOf="@+id/PlaatsText" />
+
+    <TextView
+        android:id="@+id/SjabloonText"
+        style="@style/normalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBackground"
+        android:text="@string/Template"
+        android:textAppearance="@style/normalText"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/PlaatsText"
+        app:layout_constraintTop_toBottomOf="@+id/PlaatsText" />
+
+    <TextView
+        android:id="@+id/PlaatsText"
+        style="@style/normalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBackground"
+        android:text="@string/PinSet"
+        android:textAppearance="@style/normalText"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seperator2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SmartBox</string>
+    <string name="LogIn">Meld Aan</string>
+    <string name="ready">Klaar</string>
+    <string name="NoAlarm">Er is nog geen wekker ingesteld.</string>
+    <string name="Delete">Wis</string>
+    <string name="Password">Wachtwoord</string>
+    <string name="Username">Gebruikersnaam</string>
+    <string name="OldPassword">Oud wachtwoord</string>
+    <string name="NewPassword">Nieuw Wachtwoord</string>
+    <string name="NewName">Nieuwe Naam</string>
+    <string name="NameTemplate">Naam Sjabloon</string>
+    <string name="showColor">Toon Kleur</string>
+    <string name="PinSetName">Plaatsnaam</string>
+    <string name="Template">Sjabloon:</string>
+    <string name="PinSet">Plaats:</string>
+</resources>

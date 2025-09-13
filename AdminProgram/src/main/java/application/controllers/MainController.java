@@ -218,10 +218,6 @@ public class MainController implements Initializable {
 
 		fillChoiceBox(users_eu, usernames);
 	}
-	
-	public void test() {
-		System.out.println("Testeelklkqsjgslgm");
-	}
 
 	@FXML
 	public void getUsers() {

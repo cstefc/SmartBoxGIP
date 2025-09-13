@@ -1,19 +1,19 @@
 package application.logistics;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 import java.util.prefs.Preferences;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 
 public class Request {
 
@@ -24,32 +24,8 @@ public class Request {
 
 	public Request(String path) {
 		try {
-			
-			// Create a trust manager that does not validate certificate chains
-			TrustManager[] trustAllCerts = new TrustManager[] { 
-			    new X509TrustManager() {     
-			        public java.security.cert.X509Certificate[] getAcceptedIssuers() { 
-			            return new X509Certificate[0];
-			        } 
-			        public void checkClientTrusted( 
-			            java.security.cert.X509Certificate[] certs, String authType) {
-			            } 
-			        public void checkServerTrusted( 
-			            java.security.cert.X509Certificate[] certs, String authType) {
-			        }
-			    } 
-			}; 
-			
-			// Install the all-trusting trust manager
-			try {
-			    SSLContext sc = SSLContext.getInstance("SSL"); 
-			    sc.init(null, trustAllCerts, new java.security.SecureRandom()); 
-			    HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
-			} catch (GeneralSecurityException e) {
-			} 
-			
-			url = new URL("https://smartbox.happyit.eu" + path);
-			HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+			url = new URL("http://localhost:8080" + path);
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			
 			if (getAuth()) {

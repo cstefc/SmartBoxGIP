@@ -1,5 +1,6 @@
 HELP.md
 target/
+bin/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/testFiles.test/**
@@ -12,7 +13,7 @@ target/
 .settings
 .springBeans
 .sts4-cache
-
+.DS_Store
 ### IntelliJ IDEA ###
 .idea
 *.iws

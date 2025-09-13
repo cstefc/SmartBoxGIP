@@ -18,6 +18,7 @@ public class Message {
 		alert.setTitle("Succes");
 		alert.setHeaderText(null);
 		alert.setContentText(message);
+        alert.setResizable(true);
 
 		alert.showAndWait();
 		}

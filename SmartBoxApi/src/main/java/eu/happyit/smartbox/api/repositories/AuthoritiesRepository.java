@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import eu.happyit.smartbox.api.domain.Authorities;
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 
 public interface AuthoritiesRepository extends JpaRepository<Authorities, Long>{
 
 	@Transactional
 	@Modifying
 	@Query("UPDATE Authorities a SET a.user = :user WHERE a.user = null AND a.authority = :role")
-	void updateUser(User user, String role);
+	void updateUser(Users user, String role);
 
 }

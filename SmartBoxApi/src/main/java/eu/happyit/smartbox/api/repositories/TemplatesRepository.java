@@ -10,12 +10,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import eu.happyit.smartbox.api.domain.PinSets;
 import eu.happyit.smartbox.api.domain.Templates;
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 
 public interface TemplatesRepository extends JpaRepository<Templates, Long> {
 
 	@Query("SELECT t FROM Templates t WHERE t.templateName = :templateName AND t.user = :user")
-	Templates findByTemplateName(String templateName, User user);
+	Templates findByTemplateName(String templateName, Users user);
 
 	
 	@Transactional
@@ -27,5 +27,5 @@ public interface TemplatesRepository extends JpaRepository<Templates, Long> {
 	@Transactional
 	@Modifying
 	@Query("UPDATE Templates t SET t.templateName = :newTemplateName WHERE t.templateName = :templateName AND t.user = :user")
-	void updateName(User user, String templateName, String newTemplateName);
+	void updateName(Users user, String templateName, String newTemplateName);
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import eu.happyit.smartbox.api.domain.PinSets;
 import eu.happyit.smartbox.api.domain.Templates;
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 import eu.happyit.smartbox.api.repositories.PinSetsRepository;
 import eu.happyit.smartbox.api.repositories.TemplatesRepository;
 import eu.happyit.smartbox.api.repositories.UserRepository;
@@ -45,7 +45,7 @@ public class TemplateController {
 			@RequestParam String templateName, Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		Iterator<Templates> templates = user.getTemplates().iterator();
 		while (templates.hasNext()) {
@@ -68,7 +68,7 @@ public class TemplateController {
 
 		// Getting all the user information
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		if (user == null || pinSetName.equals("") || templateName.equals("")) {
 			return badRequest;
@@ -99,7 +99,7 @@ public class TemplateController {
 		// Getting the users templates
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		Set<PinSets> returnPinSets = new HashSet<PinSets>();
 
@@ -120,7 +120,7 @@ public class TemplateController {
 	public @ResponseBody Set<Templates> showTemplates(Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		Set<Templates> templates = user.getTemplates();
 		return templates;
 	}
@@ -133,7 +133,7 @@ public class TemplateController {
 			Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		if (templateRepo.findByTemplateName(newTemplateName, user) == null && findPinSet(user, pinSetName) == null) {
 			return badRequest;
@@ -151,7 +151,7 @@ public class TemplateController {
 			Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		if (user != null && templateName != null) {
 			templateRepo.updateName(user, templateName, newTemplateName);
@@ -167,7 +167,7 @@ public class TemplateController {
 
 		// Getting all the user information
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		// Searching for the PinSet
 		PinSets pinSet = findPinSet(user, oldPinSetName);
@@ -183,7 +183,7 @@ public class TemplateController {
 	ResponseEntity<?> changeActive(@RequestParam String pinSetName, Authentication auth, @RequestParam boolean state) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		PinSets pinSet = findPinSet(user, pinSetName);
 		if (pinSet == null || pinSetName.equals("")) {
@@ -201,7 +201,7 @@ public class TemplateController {
 	ResponseEntity<?> deleteTemplate(@RequestParam String templateName, Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		Templates template = templateRepo.findByTemplateName(templateName, user);
 
@@ -220,7 +220,7 @@ public class TemplateController {
 	ResponseEntity<?> deletePinSet(@RequestParam String pinSetName, Authentication auth) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		if (user == null || pinSetName.equals("")) {
 			return badRequest;
@@ -238,7 +238,7 @@ public class TemplateController {
 
 	}
 
-	public PinSets findPinSet(User user, String pinSetName) {
+	public PinSets findPinSet(Users user, String pinSetName) {
 		Set<Templates> templates = user.getTemplates();
 		for (Iterator<Templates> templatesIt = templates.iterator(); templatesIt.hasNext();) {
 			Set<PinSets> pinSets = templatesIt.next().getPinSets();

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-public class User {
+public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -37,10 +37,10 @@ public class User {
 	private boolean lockDown;
 	private boolean musicOn;
 
-	public User() {
+	public Users() {
 	}
 
-	public User(String username, String encryptedPassword, String role) {
+	public Users(String username, String encryptedPassword, String role) {
 		Authorities authority = new Authorities(role);
 		Set<Authorities> authorities = new HashSet<Authorities>();
 		authorities.add(authority);

@@ -1,13 +1,13 @@
 package eu.happyit.smartbox.api.websocket.messageTemplates;
 
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 
 public class LockDownMessage {
 	private boolean lockDown;
 
 	public LockDownMessage() {}
 	
-	public LockDownMessage(User user) {
+	public LockDownMessage(Users user) {
 		this.lockDown = user.getLockDown();
 	}
 	

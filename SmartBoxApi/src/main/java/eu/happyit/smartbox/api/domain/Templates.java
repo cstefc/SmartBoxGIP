@@ -29,7 +29,7 @@ public class Templates {
 
 	@JsonBackReference
 	@ManyToOne
-	private User user;
+	private Users user;
 
 	@JsonManagedReference
 	@OneToMany(mappedBy = "template", orphanRemoval = true,  cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -38,7 +38,7 @@ public class Templates {
 	public Templates() {
 	}
 
-	public Templates(int R, int G, int B, String templateName, User user) {
+	public Templates(int R, int G, int B, String templateName, Users user) {
 		this.R = R;
 		this.G = G;
 		this.B = B;
@@ -86,11 +86,11 @@ public class Templates {
 		B = b;
 	}
 
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

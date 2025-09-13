@@ -19,7 +19,7 @@ public class Authorities implements GrantedAuthority{
 	private String authority;
 	@JsonBackReference
 	@ManyToOne
-	private User user;
+	private Users user;
 	
 	public Authorities () {}
 	
@@ -44,10 +44,10 @@ public class Authorities implements GrantedAuthority{
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 }

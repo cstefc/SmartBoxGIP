@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 import eu.happyit.smartbox.api.repositories.UserRepository;
-import eu.happyit.smartbox.api.security.UserDetailsSecurity;
+import eu.happyit.smartbox.api.security.UsersDetailsSecurity;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService{
@@ -20,12 +20,12 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		
 		if(user == null) {
 			throw new UsernameNotFoundException("De ingevoerde gegevens zijn incorrect!");
 		}
-		return new UserDetailsSecurity(user);
+		return new UsersDetailsSecurity(user);
 	}
 
 }

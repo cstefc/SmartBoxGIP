@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eu.happyit.smartbox.api.domain.Authorities;
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 import eu.happyit.smartbox.api.repositories.AuthoritiesRepository;
 import eu.happyit.smartbox.api.repositories.UserRepository;
 import eu.happyit.smartbox.api.websocket.messageTemplates.PasswordMessage;
@@ -49,7 +49,7 @@ public class UserAdminController {
 			if (userRepo.findByUsername(username) != null) {
 				return badRequest;
 			} else {
-				User user = new User(username, passEncoder.encode(password), role);
+				Users user = new Users(username, passEncoder.encode(password), role);
 
 				userRepo.save(user);
 				authRepo.updateUser(user, role);
@@ -64,7 +64,7 @@ public class UserAdminController {
 
 	@RequestMapping(path = "/addAuthority")
 	ResponseEntity<?> addAuthority(@RequestParam String username, @RequestParam String role) {
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		if (user != null && (role.equals("ROLE_USER") || role.equals("ROLE_ADMIN"))) {
 			// Creating the new authority
 			Authorities newAuthority = new Authorities();
@@ -102,7 +102,7 @@ public class UserAdminController {
 	// Read functions
 
 	@RequestMapping(path = "/showUsers")
-	public @ResponseBody List<User> showUser() {
+	public @ResponseBody List<Users> showUser() {
 
 		// Getting all users and returning them
 		return userRepo.findAll();
@@ -111,7 +111,7 @@ public class UserAdminController {
 	@RequestMapping(path = "/showAuthorities")
 	public @ResponseBody Set<Authorities> showAuthorities(@RequestParam String username) {
 		// Getting all users and returning them
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		if (user == null) {
 			return null;
 		}
@@ -126,7 +126,7 @@ public class UserAdminController {
 
 	@RequestMapping(path = "/deleteUser")
 	ResponseEntity<?> deleteUser(@RequestParam String username) {
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		// Checking that user exist
 		if (user == null) {
@@ -140,7 +140,7 @@ public class UserAdminController {
 
 	@RequestMapping(path = "/deleteAuthority")
 	ResponseEntity<?> deleteAuthority(@RequestParam String username, @RequestParam String role) {
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 
 		if (user == null || role.equals("ROLE_USER")) {
 			return badRequest;
@@ -162,7 +162,7 @@ public class UserAdminController {
 	@RequestMapping(path = "/changePassword")
 	ResponseEntity<?> changePassword(Authentication auth, @RequestParam String newPassword) {
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		if (user != null) {
 			userRepo.updatePassword(passEncoder.encode(newPassword), username);
 			userRepo.flush();

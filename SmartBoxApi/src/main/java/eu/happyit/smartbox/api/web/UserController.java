@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 import eu.happyit.smartbox.api.repositories.UserRepository;
 import eu.happyit.smartbox.api.websocket.messageTemplates.LockDownMessage;
 import eu.happyit.smartbox.api.websocket.messageTemplates.PasswordMessage;
@@ -42,10 +42,10 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "/showUser")
-	public @ResponseBody User showUser(Authentication auth) {
+	public @ResponseBody Users showUser(Authentication auth) {
 
 		// Get the user information
-		User user = userRepo.findByUsername(auth.getName());
+		Users user = userRepo.findByUsername(auth.getName());
 		return user;
 	}
 
@@ -54,7 +54,7 @@ public class UserController {
 	ResponseEntity<?> changeLockDown(Authentication auth, @RequestParam boolean state) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		userRepo.changeLockDown(username, state);
 		
 		user.setLockDown(state);
@@ -67,7 +67,7 @@ public class UserController {
 	ResponseEntity<?> changeMusic(Authentication auth, Principal principal) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		boolean musicOn = user.isMusicOn();
 		if (musicOn) {
 			userRepo.changeMusicOn(username, false);
@@ -90,7 +90,7 @@ public class UserController {
 			@RequestParam String newPassword) {
 
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		if (user != null) {
 			if (passEncoder.matches(password, user.getPassword())) {
 				userRepo.updatePassword(passEncoder.encode(newPassword), username);

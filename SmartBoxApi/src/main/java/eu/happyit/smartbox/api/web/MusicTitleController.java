@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eu.happyit.smartbox.api.domain.MusicTitles;
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 import eu.happyit.smartbox.api.repositories.MusicTitlesRepository;
 import eu.happyit.smartbox.api.repositories.UserRepository;
 import eu.happyit.smartbox.api.websocket.messageTemplates.MusicMessage;
@@ -41,7 +41,7 @@ public class MusicTitleController {
 			Authentication auth) {
 		// Getting the user information
 		String username = auth.getName();
-		User user = userRepo.findByUsername(username);
+		Users user = userRepo.findByUsername(username);
 		if (user != null) {
 
 			// Checking if the title doesn't already exist
@@ -69,7 +69,7 @@ public class MusicTitleController {
 	@RequestMapping(path = "/showMusicTitle")
 	public @ResponseBody Set<MusicTitles> showMusicTitles(Authentication auth) {
 		// Getting all the musicTitles of the user and returning them
-		User user = userRepo.findByUsername(auth.getName());
+		Users user = userRepo.findByUsername(auth.getName());
 		if (user != null) {
 			Set<MusicTitles> musicTitles = user.getMusicTitles();
 			return musicTitles;
@@ -85,7 +85,7 @@ public class MusicTitleController {
 	ResponseEntity<?> changeMusicTitle(@RequestParam String oldTitle, @RequestParam String newTitle, Authentication auth) {
 
 		// Getting all the titles of the user
-		User user = userRepo.findByUsername(auth.getName());
+		Users user = userRepo.findByUsername(auth.getName());
 		if (user == null) {
 			return badRequest;
 		}
@@ -114,7 +114,7 @@ public class MusicTitleController {
 	ResponseEntity<?> deleteMusicTitle(@RequestParam String title, Authentication auth) {
 
 		// Getting the user information
-		User user = userRepo.findByUsername(auth.getName());
+		Users user = userRepo.findByUsername(auth.getName());
 		if (user != null) {
 			// Getting all the tiles and searching for the title
 			Iterator<MusicTitles> titles = user.getMusicTitles().iterator();

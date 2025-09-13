@@ -2,14 +2,14 @@ package eu.happyit.smartbox.api.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 
-public class UserDetailsSecurity extends User implements UserDetails{
+public class UsersDetailsSecurity extends Users implements UserDetails{
 	private static final long serialVersionUID = 6469881603676051942L;
 
-	public UserDetailsSecurity () {}
+	public UsersDetailsSecurity() {}
 	
-	public UserDetailsSecurity (User user) {
+	public UsersDetailsSecurity(Users user) {
 		this.setAuthorities(user.getAuthorities());
 		this.setId(user.getId());
 		this.setUsername(user.getUsername());

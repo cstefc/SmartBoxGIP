@@ -1,6 +1,6 @@
 package eu.happyit.smartbox.api.websocket.messageTemplates;
 
-import eu.happyit.smartbox.api.domain.User;
+import eu.happyit.smartbox.api.domain.Users;
 
 public class PlayMessage {
 	boolean play;
@@ -8,7 +8,7 @@ public class PlayMessage {
 	public PlayMessage() {
 	}
 
-	public PlayMessage(User user) {
+	public PlayMessage(Users user) {
 		this.play = user.isMusicOn();
 	}
 

@@ -16,7 +16,7 @@ public class MusicTitles {
 
 	@JsonBackReference
 	@ManyToOne
-	private User user;
+	private Users user;
 
 	private String songTitle;
 	
@@ -24,17 +24,17 @@ public class MusicTitles {
 	
 	public MusicTitles () {}
 	
-	public MusicTitles (String title, int duration, User user) {
+	public MusicTitles (String title, int duration, Users user) {
 		this.songTitle = title;
 		this.duration = duration;
 		this.user = user;
 	}
 	
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 

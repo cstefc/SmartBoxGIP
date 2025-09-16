@@ -20,11 +20,11 @@ public class Request {
 	private String response;
 	private int responseCode;
 	private String auth;
-	private URL url;
+    private static String API_URL = "http://localhost:8080";
 
 	public Request(String path) {
 		try {
-			url = new URL("http://localhost:8080" + path);
+            URL url = new URL(API_URL + path);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("GET");
 			
@@ -47,7 +47,7 @@ public class Request {
 		Preferences pref = Preferences.userRoot().node("userInformation");
 		String username = pref.get("username", "");
 		String password = pref.get("password", "");
-		if (username.equals("") || password.equals("")) {
+		if (username.isEmpty() || password.isEmpty()) {
 			return false;
 		}
 		auth = Base64.getEncoder().encodeToString((username + ":" + password).getBytes(StandardCharsets.UTF_8));

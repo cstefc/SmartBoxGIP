@@ -11,15 +11,103 @@
         android:layout_height="wrap_content">
 
         <ImageButton
+            android:id="@+id/imageButton"
+            style="@style/imageButton"
+            android:layout_width="68dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+            app:srcCompat="@drawable/logout" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            style="@style/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="128dp"
+            android:onClick="changeLightState"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/onof" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            style="@style/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:onClick="openAlarmSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectPinSet"
+            app:srcCompat="@drawable/alarm" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            style="@style/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:onClick="changeMusic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton2"
+            app:srcCompat="@drawable/music" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            style="@style/imageButton"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="92dp"
+            android:onClick="openSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+            app:srcCompat="@drawable/settings" />
+
+        <ImageView
+            android:id="@+id/lightIndicator"
+            android:layout_width="22dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="-25dp"
+            android:layout_marginTop="-25dp"
+            app:layout_constraintStart_toEndOf="@+id/imageButton2"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+            app:srcCompat="@drawable/off_light" />
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            style="@style/imageButton"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="openTemplateSettings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:srcCompat="@drawable/idea" />
+
+        <Spinner
+            android:id="@+id/selectPinSet"
+            android:layout_width="151dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <ImageButton
             android:id="@+id/imageButton9"
             style="@style/imageButton"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:onClick="exit"
-            app:srcCompat="@drawable/logout"
-            tools:layout_editor_absoluteX="351dp"
-            tools:layout_editor_absoluteY="130dp" />
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="changeLockDown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton5"
+            app:srcCompat="@drawable/lock" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

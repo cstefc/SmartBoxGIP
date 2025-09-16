@@ -10,6 +10,7 @@ import android.util.Log;
 import androidx.appcompat.app.AlertDialog;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Authenticator;
 import java.net.HttpURLConnection;
@@ -38,7 +39,6 @@ public class Request extends AsyncTask<Void, Void, Void> {
                 String url = "http://192.168.0.179:8080" + path;
                 final String name = username;
                 final String pass = password;
-
                 //Setting the authentication settings
                 Authenticator.setDefault(new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -51,9 +51,21 @@ public class Request extends AsyncTask<Void, Void, Void> {
                 this.connection.setUseCaches(true);
                 this.connection.connect();
 
-                //Getting the response
-                BufferedReader br = new BufferedReader(new InputStreamReader(this.connection.getInputStream()));
-                response = br.readLine();
+                int responseCode = connection.getResponseCode();
+                InputStream stream;
+                if (responseCode >= 200 && responseCode < 300) {
+                    stream = connection.getInputStream();
+                } else {
+                    stream = connection.getErrorStream();
+                    Log.e("HTTP", "Error response: " + responseCode);
+                }
+                BufferedReader br = new BufferedReader(new InputStreamReader(stream));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+                response = sb.toString();
             } catch (Exception e) {
                 e.printStackTrace();
             }

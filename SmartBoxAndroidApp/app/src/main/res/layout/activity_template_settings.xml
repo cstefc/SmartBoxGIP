@@ -120,15 +120,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/NameTemplate"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/preview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         style="@style/textTitle"
@@ -168,7 +168,7 @@
         android:id="@+id/getTemplate"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="8dp"
         android:onClick="makeNewTemplate"
         android:text="@string/ready"

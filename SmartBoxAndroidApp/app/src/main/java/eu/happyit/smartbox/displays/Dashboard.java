@@ -32,8 +32,6 @@ public class Dashboard extends AppCompatActivity {
     private Set<PinSets> pinSets = new HashSet<>();
 
     // Elements on view
-    private TextView title;
-
     private Spinner selectPinSet;
 
     private ImageView lightIndicator;
@@ -46,7 +44,6 @@ public class Dashboard extends AppCompatActivity {
         }
 
         public void setDefaultVariables(){
-            title = findViewById(R.id.username);
             selectPinSet = findViewById(R.id.selectPinSet);
             lightIndicator = findViewById(R.id.lightIndicator);
             isLight = true;
@@ -61,9 +58,9 @@ public class Dashboard extends AppCompatActivity {
             this.username = pref.getString("username", null);
             this.password = pref.getString("password", null);
 
-            title.setText(this.username); // Setting the title
             Request pinSetRequest = new Request(this, username, password, "/light/showPinSet");
             pinSetRequest.execute().get();
+            Log.d("response", pinSetRequest.response);
             JSONArray pinSets = new JSONArray(pinSetRequest.response);
             for (int i = 0; i<pinSets.length(); i++){
                 this.pinSets.add(new PinSets(pinSets.getJSONObject(i)));
@@ -75,7 +72,7 @@ public class Dashboard extends AppCompatActivity {
             lightRequest.execute();
             lightIndicator.setImageResource(R.drawable.on_light);
 
-        }catch (JSONException | ExecutionException | InterruptedException e) {
+        }catch (Exception e) {
                 Log.d("Error", "JSONException");
         }
 

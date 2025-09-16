@@ -46,7 +46,7 @@ public class LogIn extends AppCompatActivity {
         String password = passwordBox.getText().toString();
         try {
             Request sendRequest = new Request(this, username, password, "/user/verify");
-            Log.d("sendRequest", "SendRequest");
+            Log.d("sendRequest", "username: "+ username + ", password: "+password);
             sendRequest.execute().get();
             int responseCode = sendRequest.connection.getResponseCode();
 
@@ -62,7 +62,7 @@ public class LogIn extends AppCompatActivity {
                     startActivity(intent);
                     return;
             }
-            Toast.makeText(this, "Probeer opnieuw!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Probeer opnieuw! (" + responseCode + ")", Toast.LENGTH_LONG).show();
         }catch (Exception e){
             Log.d("Not Done", "LogIn Screen");
             e.printStackTrace();

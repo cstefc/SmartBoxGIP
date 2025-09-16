@@ -44,7 +44,6 @@ public class LogIn extends AppCompatActivity {
 
         String username = usernameBox.getText().toString();
         String password = passwordBox.getText().toString();
-
         try {
             Request sendRequest = new Request(this, username, password, "/user/verify");
             Log.d("sendRequest", "SendRequest");

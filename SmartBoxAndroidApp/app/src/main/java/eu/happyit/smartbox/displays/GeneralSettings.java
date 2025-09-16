@@ -12,21 +12,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Set;
 
 import eu.happyit.smartbox.R;
-import eu.happyit.smartbox.domain.PinSets;
-import eu.happyit.smartbox.domain.Templates;
 import eu.happyit.smartbox.logistics.Request;
 import eu.happyit.smartbox.logistics.FillingSpinners;
 import eu.happyit.smartbox.logistics.Messages;
 
-public class generalSettings extends AppCompatActivity {
+public class GeneralSettings extends AppCompatActivity {
     // User information
     private String username;
     private String password;
@@ -167,7 +164,7 @@ public class generalSettings extends AppCompatActivity {
     }
 
     public void openDashboard(){
-        Intent intent = new Intent(generalSettings.this, Dashboard.class);
+        Intent intent = new Intent(GeneralSettings.this, Dashboard.class);
         startActivity(intent);
     }
 

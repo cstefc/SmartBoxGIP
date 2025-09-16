@@ -127,7 +127,7 @@ public class Dashboard extends AppCompatActivity {
         }
 
         public void openSettings (View view){
-            Intent intent = new Intent(Dashboard.this, generalSettings.class);
+            Intent intent = new Intent(Dashboard.this, GeneralSettings.class);
             startActivity(intent);
         }
 

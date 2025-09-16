@@ -35,7 +35,7 @@ public class Request extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... voids) {
             try {
                 Log.d("Request", "Begin");
-                String url = "http://smartbox.happyit.eu:80" + path;
+                String url = "http://192.168.0.179:8080" + path;
                 final String name = username;
                 final String pass = password;
 

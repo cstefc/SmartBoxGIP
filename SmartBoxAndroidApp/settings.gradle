@@ -1,2 +1,4 @@
-include ':app'
-rootProject.name='SmartBox'
+// settings.gradle
+rootProject.name = "SmartBoxAndroidApp"
+
+include(":app")

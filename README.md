@@ -26,7 +26,7 @@ The SmartBox system consists of four main components that work together:
 Device states and updates are sent back to the app through the API or WebSocket.
 
 ## Modules
-- **[SmartBox API](./SmartBoxAPI/README.md):** Provides backend services, manages users and authorities, and exposes endpoints for controlling devices.  
+- **[SmartBox API](./SmartBoxApi/README.md):** Provides backend services, manages users and authorities, and exposes endpoints for controlling devices.  
 - **[SmartBox Android App](./SmartBoxAndroidApp/README.md):** Mobile interface for users to interact with the SmartBox system.  
 - **[RaspberryWebsocketClient](./RaspberryWebsocketClient/README.md):** Connects to the API via WebSocket, relays commands to Arduino, and controls music playback.  
 - **[Admin Program](./AdminProgram/README.md):** Allows administrators to manage users and authorities in the database for demonstration purposes.  

@@ -1,7 +1,7 @@
 # SmartBox Project
 
 ## Intro
-The SmartBox project was created my final-year secondary school work.  
+The SmartBox project was created as my final-year secondary school work.  
 It is a prototype smart home system where users can control lights, locks, alarms, and music via a mobile app.  
 The project demonstrates my early programming skills, including Java, Spring Boot, Android development, and basic IoT integration.  
 All components are self-taught and intended for demonstration purposes only.
